@@ -278,12 +278,12 @@ public function AdminUserStore(Request $request)
 
 
     // Admin szerkesztési oldal megjelenítése
-    public function EditAdminRole($id)
+    public function EditAdminRole(User $user)
     {
-        // Admin adatok és szerepkörök lekérése
-        $user = User::findOrFail($id);
+        // Az összes szerepkör lekérése
         $roles = Role::all();
-        // Admin szerkesztési nézet visszaadása
+
+        // Admin szerkesztési nézet visszaadása a 'user' objektummal
         return view('backend.admin.edit_admin', compact('user', 'roles'));
     }
 
