@@ -174,12 +174,10 @@ class AdminController extends Controller
     }
 
     // Aktív eladó részleteinek megjelenítése
-    public function ActiveVendorDetails($id)
+    public function ActiveVendorDetails(User $user)
     {
-        // Aktív eladó adatainak lekérése
-        $ActiveVendorDetails = User::findOrFail($id);
-        // Aktív eladó részletező nézet visszaadása
-        return view('backend.vendor.active_vendor_details', compact('ActiveVendorDetails'));
+        // Aktív eladó részletező nézet visszaadása a 'user' objektummal
+        return view('backend.vendor.active_vendor_details', ['ActiveVendorDetails' => $user]);
     }
 
     // Eladó inaktiválása
